@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script type="text/Javascript" src="sampleAudition.js"></script>
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+        rel="stylesheet" type="text/css"/link>
+        <style>
+            label{
+                width: 150px;
+                text-align: left;
+                padding-right: 10px;
+                padding-bottom: 15px;
+            }
+            #label1{
+                width: 150px;
+                text-align: right;
+                padding-right: 35px;
+                padding-bottom: 15px;
+            }
+            h1{
+                text-indent: 50px;
+            }
+            #btnClick{
+                padding-left: 75px;
+                padding-bottom: 15px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div id="div1">
+            <b><h1>Sample</h1></b>
+            </div>
+            <div>
+            <label>Starting Number: </label>
+            <input id="startingNum" type="text">
+            </div>
+            <div>
+            <label>Ending Number: </label>
+            <input id="endingNum" type="text">
+            </div>
+            <div>
+            <label id="label1">Step: </label>
+            <input id="stepperNum" type="text">
+            </div>
+            <div id="btnClick">
+            <button onclick="displayEvens();">Display Evens</button>
+            </div>
+        <div class = "display">
+            <p>Here are the even numbers between <span id="startNum"></span> and <span id="endNum"></span> by <span id="stepNum"></span>'s:</p>
+            <span id="result"></span>
+        </div>
+    </body>
+</html>
