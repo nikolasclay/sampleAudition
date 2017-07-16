@@ -24,6 +24,9 @@
                 padding-left: 75px;
                 padding-bottom: 15px;
             }
+            input{
+                width: 150px;
+            }
         </style>
     </head>
     <body>
@@ -31,24 +34,25 @@
             <div id="div1">
             <b><h1>Sample</h1></b>
             </div>
-            <div>
-            <label>Starting Number: </label>
-            <input id="startingNum" type="text">
-            </div>
-            <div>
-            <label>Ending Number: </label>
-            <input id="endingNum" type="text">
-            </div>
-            <div>
-            <label id="label1">Step: </label>
-            <input id="stepperNum" type="text">
-            </div>
-            <div id="btnClick">
-            <button onclick="displayEvens();">Display Evens</button>
-            </div>
-        <div class = "display">
-            <p>Here are the even numbers between <span id="startNum"></span> and <span id="endNum"></span> by <span id="stepNum"></span>'s:</p>
-            <span id="result"></span>
+            <form name="getNumbers" onsubmit="return validateNums();">
+                <div class="form-group">
+                    <label for="startNum">Starting Number: </label>
+                    <input id="startNum" type="number" class="form-control"><br/>
+                </div>
+                <div class="form-group">
+                    <label for="endNum">Ending Number: </label>
+                    <input id="endNum" type="number" class="form-control"><br/>
+                </div>
+                <div class="form-group">
+                    <label for="stepNum" id="label1">Step: </label>
+                    <input id="stepNum" type="number" class="form-control"><br/>
+                </div>
+                <button type="submit" value="Display Evens" id="submitButton">Display Evens</button>
+            </form>
+        <div>
+            <p>Here are the even numbers between <span id="num1"></span> and <span id="num2"></span> by <span id="num3"></span>'s:</p>
+            <span id="results"></span>
+        </div>
         </div>
     </body>
 </html>

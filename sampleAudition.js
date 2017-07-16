@@ -1,40 +1,83 @@
-function displayEvens(){
-    calculate();
+function clearErrors() {
+    for (var loopCounter = 0; loopCounter < document.forms["getNumbers"].elements.length; loopCounter++){
+        if(document.forms["getNumbers"].elements[loopCounter].parentElement.className.indexOf("has-") != -1){
+            document.forms["getNumbers"].elements[loopCounter].parentElement.className = "form-group";
+        }
+    }
 }
+/*function displayEvens(startNum,endNum,stepNum){
 
-function calculate(){
-
-    var a = parseInt(document.getElementById("startingNum").value);
-    var b = parseInt(document.getElementById("endingNum").value);
-    var c = parseInt(document.getElementById("stepperNum").value);
     var evenNums = [];
+    for(i = startNum; i < endNum; i += stepNum){
+        if(i % 2 == 0){
+            evenNums.push(i);
+        }
+        document.getElementById("results").innerHTML = evenNums;
+    }
+    return evenNums;*/ 
+    /*(while (startNum < endNum){
+        if (startNum % 2 == 0){
+            evenNums.push(startNum);
+        }
+            startNum += stepNum;
+        }
+        for (i = 0; i < evenNums.length; i++){
+    document.getElementById("results").innerHTML += "<p>" + evenNums[i] + "</p>";*/
+ function displayEvens(startNum,endNum,stepNum) {
 
-    document.getElementById("startNum").innerHTML = a;
-    document.getElementById("endNum").innerHTML = b;
-    document.getElementById("stepNum").innerHTML = c;
-    if(a == "" || isNaN(a)){
+    var startNum = parseInt(document.getElementById("startNum").value);
+    var endNum = parseInt(document.getElementById("endNum").value);
+    var stepNum = parseInt(document.getElementById("stepNum").value);
+
+    console.log('started function');
+    var evenNums = [];
+    console.log("looping from " + startNum + " to " + endNum + " by " + stepNum);
+    for (var i = startNum; i < endNum; i += stepNum){
+        if(i % 2 == 0){
+            console.log("pushing " + i);
+            evenNums.push(i);
+        }
+    }
+        console.log("evenNums is: " + evenNums.join(","));
+        document.getElementById("results").innerText = evenNums;
+    }
+
+function validateNums(){
+    clearErrors();
+    displayEvens();
+
+    var startNum = document.forms["getNumbers"]["startNum"].value;
+    var endNum = document.forms["getNumbers"]["endNum"].value;
+    var stepNum = document.forms["getNumbers"]["stepNum"].value;
+
+    if(startNum == "" || isNaN(startNum)){
         alert("Starting number must be filled with a number.");
+        document.forms["getNumbers"]["startNum"].parentElement.className = "form-group has-error";
+        document.forms["getNumbers"]["startNum"].focus();
         return false;
     }
-    if(b == "" || isNaN(b)){
+    if(endNum == "" || isNaN(endNum)){
         alert("Ending number must be filled with a number.");
+        document.forms["getNumbers"]["endNum"].parentElement.className = "form-group has-error";
+        document.forms["getNumbers"]["endNum"].focus();
         return false;
         }
-    if(a == b){
+    if(startNum == endNum){
         alert("Starting number and ending number cannot be the same.");
         return false;
         }
-    if(c == "" || c < 0){
-        alert("Step counter must be a positive number.");
+    if(stepNum == "" || stepNum < 0){
+        alert("Step counter must be filled with a positive number.");
+        document.forms["getNumbers"]["stepNum"].parentElement.className = "form-group has-error";
+        document.forms["getNumbers"]["stepNum"].focus();
         return false;
-        }
-    while (a < b){
-        if(a % 2 == 0){
-            evenNums.push(a);
-            }
-        a += c;
     }
-    for (i = 0; i < evenNums.length; i++){
-        document.getElementById("result").innerHTML += "<p>" + evenNums[i] + "</p>";
+    else{
+    document.getElementById("submitButton").innerHTML = "Recalculate";
+    document.getElementById("results").style.display = "block";
+    document.getElementById("num1").innerHTML = startNum;
+    document.getElementById("num2").innerHTML = endNum;
+    document.getElementById("num3").innerHTML = stepNum;
+    return false;
     }
 }
