@@ -5,24 +5,23 @@ function clearErrors() {
         }
     }
 }
-/*function displayEvens(startNum,endNum,stepNum){
 
-    var evenNums = [];
-    for(i = startNum; i < endNum; i += stepNum){
-        if(i % 2 == 0){
-            evenNums.push(i);
-        }
-        document.getElementById("results").innerHTML = evenNums;
-    }
-    return evenNums;*/ 
-    /*(while (startNum < endNum){
-        if (startNum % 2 == 0){
-            evenNums.push(startNum);
-        }
-            startNum += stepNum;
-        }
-        for (i = 0; i < evenNums.length; i++){
-    document.getElementById("results").innerHTML += "<p>" + evenNums[i] + "</p>";*/
+function resetForm(){
+    clearErrors();
+    var startNum = parseInt(document.getElementById("startNum").value);
+    var endNum = parseInt(document.getElementById("endNum").value);
+    var stepNum = parseInt(document.getElementById("stepNum").value);
+
+    document.forms["getNumbers"]["startNum"].value = "";
+    document.forms["getNumbers"]["endNum"].value = "";
+    document.forms["getNumbers"]["stepNum"].value = "";
+    document.getElementById("results").style.display = "none";
+    document.getElementById("submitButton").innerText = "Display Evens";
+    document.getElementById("num1").innerHTML = "";
+    document.getElementById("num2").innerHTML = "";
+    document.getElementById("num3").innerHTML = "";
+    document.forms["getNumbers"]["startNum"].focus();
+}
  function displayEvens(startNum,endNum,stepNum) {
 
     var startNum = parseInt(document.getElementById("startNum").value);
@@ -38,7 +37,7 @@ function clearErrors() {
             evenNums.push(i);
         }
     }
-        console.log("evenNums is: " + evenNums.join(","));
+        //console.log("evenNums is: " + evenNums.join(","));
         document.getElementById("results").innerText = evenNums;
     }
 

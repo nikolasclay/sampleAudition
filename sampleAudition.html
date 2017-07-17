@@ -34,7 +34,7 @@
             <div id="div1">
             <b><h1>Sample</h1></b>
             </div>
-            <form name="getNumbers" onsubmit="return validateNums();">
+            <form name="getNumbers" onsubmit="return validateNums();"onreset="resetForm();">
                 <div class="form-group">
                     <label for="startNum">Starting Number: </label>
                     <input id="startNum" type="number" class="form-control"><br/>
@@ -48,6 +48,7 @@
                     <input id="stepNum" type="number" class="form-control"><br/>
                 </div>
                 <button type="submit" value="Display Evens" id="submitButton">Display Evens</button>
+                <button type="reset" value="reset" id="resetButton">Resest</button>
             </form>
         <div>
             <p>Here are the even numbers between <span id="num1"></span> and <span id="num2"></span> by <span id="num3"></span>'s:</p>
